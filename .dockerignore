@@ -1,0 +1,22 @@
+.git/
+.gitignore
+
+docker-compose.yml
+.dockerignore
+
+.env
+.venv/
+models/
+data/
+.rag_db/
+services/*/app/logs/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDE
+.idea/
+
+# Arquivos de documentação que não são necessários na aplicação final
+*.md

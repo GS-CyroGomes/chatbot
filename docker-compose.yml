@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  embedding:
+    build:
+      context: ./services/embedding
+    container_name: embedding-service
+    env_file:
+      - .env
+    volumes:
+      - ./models:/app/models
+      - ./services/embedding/app/logs:/app/app/logs
+    ports:
+      - "${EMBEDDING_PORT}:${EMBEDDING_PORT}"
+    environment:
+      - EMBEDDING_MODEL_NAME=${EMBEDDING_MODEL_NAME}
+      - N_THREADS=${N_THREADS}
+      - MAX_CONTEXT_LENGTH=${MAX_CONTEXT_LENGTH}
+      - PORT=${EMBEDDING_PORT}
+    restart: unless-stopped
+
+  generator:
+    build:
+      context: ./services/generator
+    container_name: generator-service
+    env_file:
+      - .env
+    volumes:
+      - ./models:/app/models
+      - ./services/generator/app/logs:/app/app/logs
+    ports:
+      - "${GENERATOR_PORT}:${GENERATOR_PORT}"
+    environment:
+      - AGENT_MODEL_NAME=${AGENT_MODEL_NAME}
+      - N_THREADS=${N_THREADS}
+      - N_GPU_LAYERS=${N_GPU_LAYERS}
+      - MAX_CONTEXT_LENGTH=${MAX_CONTEXT_LENGTH}
+      - PORT=${GENERATOR_PORT}
+    restart: unless-stopped
+
+  rag:
+    build:
+      context: ./services/rag
+    container_name: rag-orchestrator
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./.rag_db:/app/.rag_db
+      - ./services/rag/app/logs:/app/app/logs
+    ports:
+      - "${RAG_PORT}:${RAG_PORT}"
+    depends_on:
+      - embedding
+      - generator
+    environment:
+      - EMBEDDING_SERVICE_URL=http://embedding:${EMBEDDING_PORT}/embed
+      - GENERATOR_SERVICE_URL=http://generator:${GENERATOR_PORT}/generate
+      - CHUNK_SIZE=${CHUNK_SIZE}
+      - CHUNK_OVERLAP=${CHUNK_OVERLAP}
+      - EMBEDDING_BATCH_SIZE=${EMBEDDING_BATCH_SIZE}
+      - TOP_K_RESULTS=${TOP_K_RESULTS}
+      - COLLECTION_NAME=${COLLECTION_NAME}
+      - N_THREADS=${N_THREADS}
+    restart: unless-stopped
