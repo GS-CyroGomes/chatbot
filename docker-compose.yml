@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   embedding:
     build:
@@ -17,6 +15,9 @@ services:
       - N_THREADS=${N_THREADS}
       - MAX_CONTEXT_LENGTH=${MAX_CONTEXT_LENGTH}
       - PORT=${EMBEDDING_PORT}
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
     restart: unless-stopped
 
   generator:
@@ -36,6 +37,9 @@ services:
       - N_GPU_LAYERS=${N_GPU_LAYERS}
       - MAX_CONTEXT_LENGTH=${MAX_CONTEXT_LENGTH}
       - PORT=${GENERATOR_PORT}
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
     restart: unless-stopped
 
   rag:

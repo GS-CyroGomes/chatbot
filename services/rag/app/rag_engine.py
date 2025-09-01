@@ -95,7 +95,7 @@ class GeneratorClient:
     def chat(self, user_prompt: str) -> str:
         prompt = f"<s>[INST] <<SYS>>\n{settings.RAG_SYSTEM_PROMPT}\n<</SYS>>\n\n{user_prompt} [/INST]"
         try:
-            response = requests.post(self.service_url, json={"prompt": prompt}, timeout=120)
+            response = requests.post(self.service_url, json={"prompt": prompt}, timeout=6000)
             response.raise_for_status()
             return response.json()["text"]
         except requests.exceptions.RequestException as e:

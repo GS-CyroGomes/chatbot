@@ -1,0 +1,25 @@
+[2025-09-01 13:11:32,139] [INFO] [root] Carregando modelo de embedding: nomic-embed-text-v1.5.f32.gguf
+[2025-09-01 13:11:32,228] [INFO] [root] --- Serviço de Embedding pronto na porta 8001 ---
+[2025-09-01 13:11:33,903] [INFO] [root] Recebida requisição para embedar 25 textos.
+[2025-09-01 13:11:50,384] [INFO] [root] Embeddings criados com sucesso.
+[2025-09-01 13:12:02,086] [INFO] [root] Recebida requisição para embedar 1 textos.
+[2025-09-01 13:12:02,112] [INFO] [root] Embeddings criados com sucesso.
+[2025-09-01 13:17:36,234] [INFO] [root] Recebida requisição para embedar 1 textos.
+[2025-09-01 13:17:36,260] [INFO] [root] Embeddings criados com sucesso.
+[2025-09-01 13:25:52,109] [INFO] [root] --- Finalizando Serviço de Embedding ---
+[2025-09-01 13:26:33,966] [INFO] [root] Carregando modelo de embedding: nomic-embed-text-v1.5.f32.gguf
+[2025-09-01 13:26:36,138] [INFO] [root] --- Serviço de Embedding pronto na porta 8001 ---
+[2025-09-01 13:26:37,741] [INFO] [root] Recebida requisição para embedar 25 textos.
+[2025-09-01 13:26:54,388] [INFO] [root] Embeddings criados com sucesso.
+[2025-09-01 13:42:36,424] [INFO] [root] --- Finalizando Serviço de Embedding ---
+[2025-09-01 13:43:26,061] [INFO] [root] Carregando modelo de embedding: nomic-embed-text-v1.5.f32.gguf
+[2025-09-01 13:43:28,258] [INFO] [root] --- Serviço de Embedding pronto na porta 8001 ---
+[2025-09-01 13:43:29,841] [INFO] [root] Recebida requisição para embedar 25 textos.
+[2025-09-01 13:43:46,419] [INFO] [root] Embeddings criados com sucesso.
+[2025-09-01 13:53:18,288] [INFO] [root] --- Finalizando Serviço de Embedding ---
+[2025-09-01 13:53:51,805] [INFO] [root] Carregando modelo de embedding: nomic-embed-text-v1.5.f32.gguf
+[2025-09-01 13:53:53,930] [INFO] [root] --- Serviço de Embedding pronto na porta 8001 ---
+[2025-09-01 13:53:55,452] [INFO] [root] Recebida requisição para embedar 25 textos.
+[2025-09-01 13:54:17,569] [INFO] [root] Embeddings criados com sucesso.
+[2025-09-01 14:56:24,650] [INFO] [root] Recebida requisição para embedar 1 textos.
+[2025-09-01 14:56:24,687] [INFO] [root] Embeddings criados com sucesso.
